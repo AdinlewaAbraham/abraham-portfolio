@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Image, { StaticImageData } from "next/image";
 import buzzhivePic from "@/assects/buzzhive.png";
+import etherflowPic from "@/assects/etherflow.png";
 import ProjectCard from "@/components/ProjectCard";
 import { HtmlHTMLAttributes, useEffect, useRef, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -16,6 +17,7 @@ export interface Experience {
   header: String;
   content: string;
   techStack: string[];
+  link: string;
 }
 
 export interface Project {
@@ -62,48 +64,43 @@ export default function Home() {
 
   const experienceArray = [
     {
-      date: "2021 — Present",
-      header: "Lead Engineer · Somethign",
+      date: "2023 — Present",
+      header: "Mobile Engineer · Tekyville",
       content:
-        "When Im not at the computer, Im usually rock climbing out with my wife and two cats or running around Hyrule searching for Korok seeds K o r o k s e e d s .",
-      techStack: ["string", "React", "PHP"],
+        "Led the development of LogiTracker, a cutting-edge logistics tracking product, during my tenure as a Full Stack Mobile Developer at Tekyville. Worked within the dynamic tech environment of Nigeria, creating a robust solution for logistics companies to track goods and drivers, mitigating theft risks. Employed a tech stack comprising React Native, Express, and MongoDB to ensure the seamless functionality and performance of the LogiTracker application. Delivered high-quality, production-ready code, contributing to the success of Tekyville's mission in revolutionizing logistics management in Nigeria.",
+      techStack: ["React Native", "Node.js", "MongoDB", "TypeScript"],
+      link: "https://www.tekyville.com/",
     },
     {
-      date: "2021 — Present",
-      header: "Lead Engineer · Somethign",
+      date: "2022 — 2023",
+      header: "Developer · Grandida",
       content:
-        "When Im not at the computer, Im usually rock climbing out with my wife and two cats or running around Hyrule searching for Korok seeds K o r o k s e e d s .",
-      techStack: ["string", "React", "PHP"],
-    },
-    {
-      date: "2021 — Present",
-      header: "Lead Engineer · Somethign",
-      content:
-        "When Im not at the computer, Im usually rock climbing out with my wife and two cats or running around Hyrule searching for Korok seeds K o r o k s e e d s .",
-      techStack: ["string", "React", "PHP"],
+        "Contributed as a Full Stack Web3 Developer at Grandida, leading initiatives like Reccoin—an app designed to incentivize plastic pickers. As the backend developer, I played a pivotal role in the development of smart contracts using Solidity. Leveraging a tech stack that included Solidity for blockchain development, Next.js for web interfaces, and Hardhat for testing and deployment, I spearheaded the successful implementation of projects that aligned with Grandida's mission of creating impactful solutions. My time at Grandida was characterized by a commitment to excellence, translating innovative ideas into tangible, sustainable, and socially responsible applications.",
+      techStack: ["Solidity", "React", "Next.js"],
+      link: "https://grandida.com/",
     },
   ];
-  const projectArray = [
+  const projectArray: Project[] = [
     {
       imgURL: buzzhivePic,
       header: "Buzzhive",
       content:
-        "When Im not at the computer, Im usually rock climbing out with my wife and two cats or running around Hyrule searching for Korok seeds K o r o k s e e d s .",
-      techStack: ["string", "React", "PHP"],
+        "A feature-rich chat app where users can send polls, reply, forward messages, and share media files. Engage in dynamic conversations and explore diverse communication options within a vibrant and user-friendly interface.",
+      techStack: ["Next.js", "Firebase", "Tailwind CSS"],
     },
     {
       imgURL: buzzhivePic,
-      header: "Buzzhive",
+      header: "TeamSync",
       content:
-        "When Im not at the computer, Im usually rock climbing out with my wife and two cats or running around Hyrule searching for Korok seeds K o r o k s e e d s .",
-      techStack: ["string", "React", "PHP"],
+        "Simplifying project management. Assign tasks, manage team members, and utilize views like boards, calendar, timeline, and tables for efficient collaboration and insight.",
+      techStack: ["Next.js", "MongoDB", "Node.js", "TypeScript"],
     },
     {
-      imgURL: buzzhivePic,
-      header: "Buzzhive",
+      imgURL: etherflowPic,
+      header: "EtherFlow",
       content:
-        "When Im not at the computer, Im usually rock climbing out with my wife and two cats or running around Hyrule searching for Korok seeds K o r o k s e e d s .",
-      techStack: ["string", "React", "PHP"],
+        "A Fullstack Web3 dApp simplifying Ether transactions. Seamlessly execute transactions with an integrated beneficiary system, enabling users to save Ether accounts for recurring transactions. Enjoy a user-friendly platform that streamlines the Ether transfer process, ensuring easy and efficient transactions with integrated beneficiary management.",
+      techStack: ["Solidity", "Next.js", "Firebase", "Javascript"],
     },
   ];
   return (
@@ -127,48 +124,63 @@ export default function Home() {
                 Adinlewa Abraham
               </h1>
               <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-                Principal Software Engineer at Algolia
+                Experienced Fullstack Engineer
               </h2>
               <p className="mt-4 max-w-xs leading-normal">
-                i do stuff with my laptop and create magic and i am unemployable
-                because i am bad.
+                Architecting Exceptional and Accessible Digital Experiences for
+                the Web and Mobile Platforms.
               </p>
-              <nav className="nav hidden lg:block"></nav>
-            </div>
-            <ul className="mt-16 w-max">
-              {["about", "experience", "projects"].map((navSection) => (
-                <li>
-                  <a
-                    className="group flex items-center py-3 active"
-                    href={`#${navSection}`}
-                  >
-                    <span
-                      className={` nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16
+              <nav className="nav hidden lg:block">
+                <ul className="mt-16 w-max">
+                  {["about", "experience", "projects"].map((navSection) => (
+                    <li>
+                      <a
+                        className="group flex items-center py-3 active"
+                        href={`#${navSection}`}
+                      >
+                        <span
+                          className={` nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16
                      group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none  ${
-                        navSection === activeSection && "w-16 bg-slate-200 "
-                      }`}
-                    />
-                    <span
-                      className={` nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200
+                       navSection === activeSection && "w-16 bg-slate-200 "
+                     }`}
+                        />
+                        <span
+                          className={` nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200
                      group-focus-visible:text-slate-200 ${
-                      navSection === activeSection ? "text-slate-200" : "text-slate-500"
-                      }`}
-                    >
-                      {navSection}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+                       navSection === activeSection
+                         ? "text-slate-200"
+                         : "text-slate-500"
+                     }`}
+                        >
+                          {navSection}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
             <ul
               className="ml-1 mt-8 flex items-center"
               aria-label="Social media"
             >
               {[
-                { icon: <FaGithub />, link: "" },
-                { icon: <FaXTwitter />, link: "" },
-                { icon: <FaLinkedin />, link: "" },
-                { icon: <IoMdMail />, link: "" },
+                {
+                  icon: <FaGithub />,
+                  link: "https://github.com/AdinlewaAbraham",
+                },
+                {
+                  icon: <FaXTwitter />,
+                  link: "https://twitter.com/ADINLEWAABRAHA1",
+                },
+                {
+                  icon: <FaLinkedin />,
+                  link: "https://www.linkedin.com/in/adinlewa-abraham-3657a0257/",
+                },
+                {
+                  icon: <IoMdMail />,
+                  link: "mailto:abrahamadinlewa@gmail.com",
+                },
               ].map((social) => (
                 <li className="mr-5 text-2xl">
                   <a
@@ -193,27 +205,33 @@ export default function Home() {
                   About
                 </h2>
               </div>
-              <div>
+              <div className="[&>p>span]:text-slate-200 [&>p>span]:font-medium">
                 <p className="mb-4">
-                  ABOUT Back in 2012, I decided to try my hand at creating
-                  custom Tumblr themes and tumbled head first into the rabbit
-                  hole of coding and web development. Fast-forward to today, and
-                  I’ve had the privilege of building software for an advertising
-                  agency, a start-up, a student-led design studio, and a huge
-                  corporation.
+                  In 2020, I delved into the world of web and mobile
+                  development, and by 2021, I was building with a tech stack
+                  that includes <span>React</span>, <span>Next.js</span>,{" "}
+                  <span>React Native</span>, <span>Node.js</span>,{" "}
+                  <span>Express</span> and <span>MongoDB</span>. My coding
+                  journey has led me to contribute my skills to various
+                  projects, leaving a mark at notable companies, including{" "}
+                  <span>Grandida</span>.
                 </p>
                 <p className="mb-4">
-                  My main focus Back in 2012, I decided to try my hand at
-                  creating custom Tumblr themes and tumbled head first into the
-                  rabbit hole of coding and web development. Fast-forward to
-                  today, and I’ve had the privilege of building software for an
-                  advertising agency, a start-up, a student-led design studio,
-                  and a huge corporation.
+                  Today, my focus is on crafting{" "}
+                  <span>user-centric solutions</span>, leveraging the power of{" "}
+                  <span>React</span> and <span>Next.js</span> for dynamic web
+                  applications and <span>React Native</span> for versatile
+                  mobile experiences. I've navigated the challenges of
+                  advertising agencies, startups, student-led design studios,
+                  and the robust environments of companies like{" "}
+                  <span>Grandida</span>, where I've honed my skills in building
+                  impactful digital solutions.
                 </p>
                 <p>
-                  When I’m not at the computer, I’m usually rock climbing,
-                  hanging out with my wife and two cats, or running around
-                  Hyrule searching for Korok seeds K o r o k s e e d s .
+                  Beyond coding, I'm a proud audiophile, surrounded by an array
+                  of high-fidelity headphones. In my downtime, I dive into the
+                  gaming realm, navigating digital adventures. Join me as we
+                  shape the future, one line of code at a time.
                 </p>
               </div>
             </section>
@@ -279,11 +297,13 @@ export default function Home() {
                 ))}
               </ol>
             </section>
-            <footer className="">
-              <p>
-                Loosely designed in Figma and coded in Visual Studio Code by
-                yours truly. Built with Next.js and Tailwind CSS, deployed with
-                Vercel. All text is set in the Inter typeface.
+            <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+              <p className="[&>span]:text-slate-400 [&>span]:font-medium">
+                Implemented from inspiration, the portfolio site was coded in {" "}
+                <span>Visual Studio Code</span>. Developed with{" "}
+                <span>Next.js</span> and <span>Tailwind CSS</span>, and
+                seamlessly deployed via <span>Vercel</span>. Typography is
+                elegantly presented using the Inter typeface.
               </p>
             </footer>
           </main>
