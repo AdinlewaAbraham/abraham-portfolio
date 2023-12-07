@@ -6,6 +6,10 @@ import Header from "@/components/Header";
 import Image, { StaticImageData } from "next/image";
 import buzzhivePic from "@/assects/buzzhive.png";
 import ProjectCard from "@/components/ProjectCard";
+import { HtmlHTMLAttributes, useEffect, useRef, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { IoMdMail } from "react-icons/io";
 
 export interface Experience {
   date: string;
@@ -22,9 +26,40 @@ export interface Project {
 }
 
 export default function Home() {
-  const NavbarItem = () => {
-    return <div></div>;
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const trackedElement = useRef(null);
+  const [activeSection, setActiveSection] = useState("about");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("main section");
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (
+          rect.top <= window.innerHeight / 2 &&
+          rect.bottom >= window.innerHeight / 2
+        ) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (trackedElement.current) {
+      const element = trackedElement.current as HTMLDivElement;
+      const rect = element.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      setMousePosition({ x: mouseX, y: mouseY });
+    }
   };
+
   const experienceArray = [
     {
       date: "2021 — Present",
@@ -72,9 +107,19 @@ export default function Home() {
     },
   ];
   return (
-    <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900">
-      <div>{/* circular gradent */}</div>
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+    <div
+      className="bg-slate-900 relative leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900"
+      onMouseMove={handleMouseMove}
+      onScroll={() => console.log("scrolling")}
+      ref={trackedElement}
+    >
+      <div
+        className="pointer-events-none fixed inset-0 z-20 transition duration-300 lg:absolute "
+        style={{
+          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
+        }}
+      />
+      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0  ">
         <div className="lg:flex lg:justify-between lg:gap-4">
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div>
@@ -90,9 +135,51 @@ export default function Home() {
               </p>
               <nav className="nav hidden lg:block"></nav>
             </div>
-            <ul>
-              {["About", "Experience", "Project"].map((item) => (
-                <NavbarItem />
+            <ul className="mt-16 w-max">
+              {["about", "experience", "projects"].map((navSection) => (
+                <li>
+                  <a
+                    className="group flex items-center py-3 active"
+                    href={`#${navSection}`}
+                  >
+                    <span
+                      className={` nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16
+                     group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none  ${
+                        navSection === activeSection && "w-16 bg-slate-200 "
+                      }`}
+                    />
+                    <span
+                      className={` nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200
+                     group-focus-visible:text-slate-200 ${
+                      navSection === activeSection ? "text-slate-200" : "text-slate-500"
+                      }`}
+                    >
+                      {navSection}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <ul
+              className="ml-1 mt-8 flex items-center"
+              aria-label="Social media"
+            >
+              {[
+                { icon: <FaGithub />, link: "" },
+                { icon: <FaXTwitter />, link: "" },
+                { icon: <FaLinkedin />, link: "" },
+                { icon: <IoMdMail />, link: "" },
+              ].map((social) => (
+                <li className="mr-5 text-2xl">
+                  <a
+                    className="block hover:text-slate-200"
+                    href={social.link}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    {social.icon}
+                  </a>
+                </li>
               ))}
             </ul>
           </header>
