@@ -25,6 +25,7 @@ export interface Project {
   header: String;
   content: string;
   techStack: string[];
+  link: string;
 }
 
 export default function Home() {
@@ -87,13 +88,16 @@ export default function Home() {
       content:
         "A feature-rich chat app where users can send polls, reply, forward messages, and share media files. Engage in dynamic conversations and explore diverse communication options within a vibrant and user-friendly interface.",
       techStack: ["Next.js", "Firebase", "Tailwind CSS"],
+      link: "https://buzzhive.vercel.app/",
     },
     {
       imgURL: buzzhivePic,
       header: "TeamSync",
       content:
         "Simplifying project management. Assign tasks, manage team members, and utilize views like boards, calendar, timeline, and tables for efficient collaboration and insight.",
+
       techStack: ["Next.js", "MongoDB", "Node.js", "TypeScript"],
+      link: "",
     },
     {
       imgURL: etherflowPic,
@@ -101,6 +105,7 @@ export default function Home() {
       content:
         "A Fullstack Web3 dApp simplifying Ether transactions. Seamlessly execute transactions with an integrated beneficiary system, enabling users to save Ether accounts for recurring transactions. Enjoy a user-friendly platform that streamlines the Ether transfer process, ensuring easy and efficient transactions with integrated beneficiary management.",
       techStack: ["Solidity", "Next.js", "Firebase", "Javascript"],
+      link: "https://etherflow-seven.vercel.app/",
     },
   ];
   return (
@@ -139,9 +144,9 @@ export default function Home() {
                         href={`#${navSection}`}
                       >
                         <span
-                          className={` nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16
+                          className={` nav-indicator mr-4 h-px transition-all group-hover:w-16
                      group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none  ${
-                       navSection === activeSection && "w-16 bg-slate-200 "
+                       navSection === activeSection ? "w-16 bg-slate-200 " : "w-8 bg-slate-600"
                      }`}
                         />
                         <span
@@ -299,7 +304,7 @@ export default function Home() {
             </section>
             <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
               <p className="[&>span]:text-slate-400 [&>span]:font-medium">
-                Implemented from inspiration, the portfolio site was coded in {" "}
+                Implemented from inspiration, the portfolio site was coded in{" "}
                 <span>Visual Studio Code</span>. Developed with{" "}
                 <span>Next.js</span> and <span>Tailwind CSS</span>, and
                 seamlessly deployed via <span>Vercel</span>. Typography is
