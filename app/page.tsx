@@ -68,7 +68,7 @@ export default function Home() {
       date: "2023 — Present",
       header: "Mobile Engineer · Tekyville",
       content:
-        "Led the development of LogiTracker, a cutting-edge logistics tracking product, during my tenure as a Full Stack Mobile Developer at Tekyville. Worked within the dynamic tech environment of Nigeria, creating a robust solution for logistics companies to track goods and drivers, mitigating theft risks. Employed a tech stack comprising React Native, Express, and MongoDB to ensure the seamless functionality and performance of the LogiTracker application. Delivered high-quality, production-ready code, contributing to the success of Tekyville's mission in revolutionizing logistics management in Nigeria.",
+        "Led the development of LogiTracker, a cutting-edge logistics tracking product, during my tenure as a Full Stack Mobile Developer at Tekyville. Worked within the dynamic tech environment of Nigeria, creating a robust solution for logistics companies to track goods and drivers, mitigating theft risks. Employed a tech stack comprising React Native, Express, and MongoDB to ensure the seamless functionality and performance of the LogiTracker application. Delivered high-quality, production-ready code, contributing to the success of Tekyville&apos;s mission in revolutionizing logistics management in Nigeria.",
       techStack: ["React Native", "Node.js", "MongoDB", "TypeScript"],
       link: "https://www.tekyville.com/",
     },
@@ -76,7 +76,7 @@ export default function Home() {
       date: "2022 — 2023",
       header: "Developer · Grandida",
       content:
-        "Contributed as a Full Stack Web3 Developer at Grandida, leading initiatives like Reccoin—an app designed to incentivize plastic pickers. As the backend developer, I played a pivotal role in the development of smart contracts using Solidity. Leveraging a tech stack that included Solidity for blockchain development, Next.js for web interfaces, and Hardhat for testing and deployment, I spearheaded the successful implementation of projects that aligned with Grandida's mission of creating impactful solutions. My time at Grandida was characterized by a commitment to excellence, translating innovative ideas into tangible, sustainable, and socially responsible applications.",
+        "Contributed as a Full Stack Web3 Developer at Grandida, leading initiatives like Reccoin—an app designed to incentivize plastic pickers. As the backend developer, I played a pivotal role in the development of smart contracts using Solidity. Leveraging a tech stack that included Solidity for blockchain development, Next.js for web interfaces, and Hardhat for testing and deployment, I spearheaded the successful implementation of projects that aligned with Grandida&apos;s mission of creating impactful solutions. My time at Grandida was characterized by a commitment to excellence, translating innovative ideas into tangible, sustainable, and socially responsible applications.",
       techStack: ["Solidity", "React", "Next.js"],
       link: "https://grandida.com/",
     },
@@ -138,7 +138,7 @@ export default function Home() {
               <nav className="nav hidden lg:block">
                 <ul className="mt-16 w-max">
                   {["about", "experience", "projects"].map((navSection) => (
-                    <li>
+                    <li key={navSection}>
                       <a
                         className="group flex items-center py-3 active"
                         href={`#${navSection}`}
@@ -187,7 +187,7 @@ export default function Home() {
                   link: "mailto:abrahamadinlewa@gmail.com",
                 },
               ].map((social) => (
-                <li className="mr-5 text-2xl">
+                <li className="mr-5 text-2xl" key={social.link}>
                   <a
                     className="block hover:text-slate-200"
                     href={social.link}
@@ -226,14 +226,14 @@ export default function Home() {
                   <span>user-centric solutions</span>, leveraging the power of{" "}
                   <span>React</span> and <span>Next.js</span> for dynamic web
                   applications and <span>React Native</span> for versatile
-                  mobile experiences. I've navigated the challenges of
+                  mobile experiences. I&apos;ve navigated the challenges of
                   advertising agencies, startups, student-led design studios,
                   and the robust environments of companies like{" "}
-                  <span>Grandida</span>, where I've honed my skills in building
+                  <span>Grandida</span>, where I&apos;ve honed my skills in building
                   impactful digital solutions.
                 </p>
                 <p>
-                  Beyond coding, I'm a proud audiophile, surrounded by an array
+                  Beyond coding, I&apos;m a proud audiophile, surrounded by an array
                   of high-fidelity headphones. In my downtime, I dive into the
                   gaming realm, navigating digital adventures. Join me as we
                   shape the future, one line of code at a time.
@@ -298,7 +298,7 @@ export default function Home() {
               </div>
               <ol>
                 {projectArray.map((project, index) => (
-                  <ProjectCard project={project} key={index} />
+                  <ProjectCard project={project} key={project.content} />
                 ))}
               </ol>
             </section>
