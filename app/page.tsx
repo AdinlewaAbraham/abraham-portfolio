@@ -258,7 +258,7 @@ export default function Home() {
                 <a
                   className="inline-flex items-center leading-tight font-semibold text-slate-200 group"
                   aria-label="View Full Résumé"
-                  href="https://drive.google.com/file/d/16scu-_UoyIV2_JkZC_iS-IPxSvWokYPY/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1IgLHHeZUEzOCA4VNQcMH3Paqj8RNqaHt/view?usp=drive_link"
                   target="_blank"
                 >
                   <span>
