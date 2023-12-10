@@ -116,7 +116,7 @@ export default function Home() {
       ref={trackedElement}
     >
       <div
-        className="pointer-events-none fixed inset-0 z-20 transition duration-300 lg:absolute "
+        className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute  "
         style={{
           background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
         }}
@@ -146,7 +146,9 @@ export default function Home() {
                         <span
                           className={` nav-indicator mr-4 h-px transition-all group-hover:w-16
                      group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none  ${
-                       navSection === activeSection ? "w-16 bg-slate-200 " : "w-8 bg-slate-600"
+                       navSection === activeSection
+                         ? "w-16 bg-slate-200 "
+                         : "w-8 bg-slate-600"
                      }`}
                         />
                         <span
@@ -205,7 +207,10 @@ export default function Home() {
               id="about"
               className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
             >
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div
+                className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only
+               lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+              >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
                   About
                 </h2>
@@ -229,13 +234,13 @@ export default function Home() {
                   mobile experiences. I&apos;ve navigated the challenges of
                   advertising agencies, startups, student-led design studios,
                   and the robust environments of companies like{" "}
-                  <span>Grandida</span>, where I&apos;ve honed my skills in building
-                  impactful digital solutions.
+                  <span>Grandida</span>, where I&apos;ve honed my skills in
+                  building impactful digital solutions.
                 </p>
                 <p>
-                  Beyond coding, I&apos;m a proud audiophile, surrounded by an array
-                  of high-fidelity headphones. In my downtime, I dive into the
-                  gaming realm, navigating digital adventures. Join me as we
+                  Beyond coding, I&apos;m a proud audiophile, surrounded by an
+                  array of high-fidelity headphones. In my downtime, I dive into
+                  the gaming realm, navigating digital adventures. Join me as we
                   shape the future, one line of code at a time.
                 </p>
               </div>
